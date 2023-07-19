@@ -5,7 +5,7 @@
     android:background="@drawable/app_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.morning.MorningAzkarFragment">
+    tools:context=".ui.fragments.elazkar.MorningAzkarFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_morning"

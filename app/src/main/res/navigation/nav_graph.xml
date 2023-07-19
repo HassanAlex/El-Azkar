@@ -7,11 +7,11 @@
 
     <fragment
         android:id="@+id/morningAzkarFragment"
-        android:name="com.codestation.elazkar.ui.fragments.morning.MorningAzkarFragment"
+        android:name="com.codestation.elazkar.ui.fragments.elazkar.MorningAzkarFragment"
         tools:layout="@layout/fragment_morning_azkar" />
     <fragment
         android:id="@+id/eveningAzkarFragment"
-        android:name="com.codestation.elazkar.ui.fragments.evening.EveningAzkarFragment"
+        android:name="com.codestation.elazkar.ui.fragments.elazkar.EveningAzkarFragment"
         tools:layout="@layout/fragment_evening_azkar" />
     <fragment
         android:id="@+id/elsabhaFragment"
