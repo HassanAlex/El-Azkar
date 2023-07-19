@@ -13,7 +13,6 @@ import com.codestation.elazkar.databinding.FragmentMorningAzkarBinding
 class MorningAzkarFragment : Fragment() {
 
     lateinit var binding: FragmentMorningAzkarBinding
-
     private lateinit var viewModel: MorningAzkarViewModel
 
     override fun onCreateView(

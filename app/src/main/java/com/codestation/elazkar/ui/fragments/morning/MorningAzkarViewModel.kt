@@ -54,7 +54,7 @@ class MorningAzkarViewModel(
             }
 
         } catch (e: JSONException) {
-            Log.d("morning fragment", e.message.toString())
+
         }
         _azkarMorningList.value = azkarArrayList
     }
