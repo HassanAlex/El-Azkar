@@ -1,6 +1,5 @@
 package com.codestation.elazkar.ui.fragments.elazkar
 
-import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.codestation.elazkar.adapters.ElzkerAdapter
 import com.codestation.elazkar.databinding.FragmentEveningAzkarBinding
-import com.codestation.elazkar.repo.Repository
+import com.codestation.elazkar.repo.ElAzkarRepository
 import com.codestation.elazkar.ui.ElazkarViewModelFactory
 
 class EveningAzkarFragment : Fragment() {
@@ -37,8 +36,8 @@ class EveningAzkarFragment : Fragment() {
     }
 
     private fun setUpViewModel() {
-        val morningRepository = Repository()
-        val viewModelFactory = ElazkarViewModelFactory(requireActivity().application, morningRepository)
+        val morningElAzkarRepository = ElAzkarRepository()
+        val viewModelFactory = ElazkarViewModelFactory(requireActivity().application, morningElAzkarRepository)
 
         eveningViewModel = ViewModelProvider(this, viewModelFactory)[ElAzkarViewModel::class.java]
     }

@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import java.nio.charset.Charset
 
-class Repository {
+class ElAzkarRepository {
 
     //Read Data From Azkar Morning File
     fun getAzkarMorningJSONFromAssets(context: Context): String? {

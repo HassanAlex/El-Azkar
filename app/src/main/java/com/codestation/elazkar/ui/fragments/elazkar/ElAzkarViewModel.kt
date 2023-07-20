@@ -1,19 +1,18 @@
 package com.codestation.elazkar.ui.fragments.elazkar
 
-import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.codestation.elazkar.data.ElZekr
-import com.codestation.elazkar.repo.Repository
+import com.codestation.elazkar.repo.ElAzkarRepository
 import org.json.JSONException
 import org.json.JSONObject
 
 class ElAzkarViewModel(
     context: Context,
-    repository: Repository
+    elAzkarRepository: ElAzkarRepository
 ) : ViewModel() {
 
 
@@ -41,7 +40,7 @@ class ElAzkarViewModel(
     init {
         // Azkar Morning
         try {
-            val obj = JSONObject(repository.getAzkarMorningJSONFromAssets(context)!!)
+            val obj = JSONObject(elAzkarRepository.getAzkarMorningJSONFromAssets(context)!!)
             val azkarArray = obj.getJSONArray("data")
 
             for (i in 0 until azkarArray.length()) {
@@ -63,7 +62,7 @@ class ElAzkarViewModel(
 
         // Azkar Evening
         try {
-            val obj = JSONObject(repository.getAzkarEveningJSONFromAssets(context)!!)
+            val obj = JSONObject(elAzkarRepository.getAzkarEveningJSONFromAssets(context)!!)
             val azkarArray = obj.getJSONArray("data")
 
             for (i in 0 until azkarArray.length()) {
