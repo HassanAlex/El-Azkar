@@ -18,10 +18,5 @@
         android:icon="@drawable/ic_prayer"
         android:title="@string/elsabha" />
 
-    <item
-        android:id="@+id/elradioFragment"
-        android:icon="@drawable/ic_new_radio"
-        android:title="@string/elradio" />
-
 
 </menu>

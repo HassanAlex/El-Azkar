@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/click_effect"
     android:layout_margin="16dp"
     android:layout_marginTop="20dp"
     android:layout_marginBottom="20dp"
+    android:background="@drawable/click_effect"
     android:padding="26dp"
     app:cardCornerRadius="17dp"
     app:cardElevation="20dp">
@@ -24,7 +24,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:lineSpacingExtra="4sp"
@@ -43,7 +43,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/repetition"
             android:textColor="@color/color_item_font"
             android:textSize="24sp"
@@ -54,6 +54,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_elzekr" />
+
+        <ImageView
+            android:id="@+id/iv_okay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_done"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_numberOfRepetition"
+            app:layout_constraintEnd_toEndOf="@+id/tv_numberOfRepetition"
+            app:layout_constraintStart_toStartOf="@+id/tv_numberOfRepetition"
+            app:layout_constraintTop_toTopOf="@+id/tv_numberOfRepetition"
+            tools:visibility="visible" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

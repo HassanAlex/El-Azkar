@@ -6,7 +6,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.codestation.elazkar.ui.fragments.elazkar.EveningAzkarFragment
 import com.codestation.elazkar.ui.fragments.elazkar.MorningAzkarFragment
-import com.codestation.elazkar.ui.fragments.elradio.ElRadioFragment
 import com.codestation.elazkar.ui.fragments.elsabha.ElsabhaFragment
 
 
@@ -16,7 +15,7 @@ class AdapterViewPager(
 ) : FragmentStateAdapter(fragmentManger, lifecycle) {
 
 
-    override fun getItemCount(): Int = 4
+    override fun getItemCount(): Int = 3
 
 
     override fun createFragment(position: Int): Fragment {
@@ -24,7 +23,6 @@ class AdapterViewPager(
             0 -> {MorningAzkarFragment()}
             1 -> {EveningAzkarFragment()}
             2 -> {ElsabhaFragment()}
-            3 -> {ElRadioFragment()}
             else -> {MorningAzkarFragment()}
         }
 
