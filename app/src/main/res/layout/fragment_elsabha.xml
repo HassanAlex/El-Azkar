@@ -18,7 +18,6 @@
         android:hint="للإعادةأضغط مطولاً"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
-
         android:textSize="100sp"
         app:fontFamily="@font/digital_italic"
         app:layout_constraintBottom_toBottomOf="parent"

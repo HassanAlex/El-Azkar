@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+azkar app data/codestation_elazkar/release/app-release.aab
+azkar app data/codestation_elazkar/private_key.pepk"
+
