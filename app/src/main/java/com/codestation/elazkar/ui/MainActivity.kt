@@ -9,60 +9,47 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.codestation.elazkar.R
+import com.codestation.elazkar.adapters.AdapterViewPager
 import com.codestation.elazkar.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var appBarConfiguration: AppBarConfiguration
 
-
-    // create nav controller to use navigation in our main activity
-    private lateinit var navController: NavController
+    private lateinit var viewPager2: ViewPager2
+    private lateinit var adapter: AdapterViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //set action bar and bottom navigation with binding
-        //val toolBar = binding.toolbar
-
         val bottomNavigation = binding.bottomNavigation
+        viewPager2 = binding.pager
 
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.morningAzkarFragment,
-                R.id.eveningAzkarFragment,
-                R.id.elsabhaFragment
-            )
-        )
+        adapter = AdapterViewPager(supportFragmentManager,lifecycle)
 
-        // create reference from nave host fragment
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-        // reassign the navController to nav host because nav host has already nav Controller to control on fragments that will appeared in feature
-        navController = navHostFragment!!.findNavController()
+        viewPager2.adapter = adapter
 
+        bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.morningAzkarFragment -> viewPager2.currentItem = 0
+                R.id.eveningAzkarFragment -> viewPager2.currentItem = 1
+                R.id.elsabhaFragment -> viewPager2.currentItem = 2
+            }
+            true
+        }
+        viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                val menuItem = bottomNavigation.menu.getItem(position)
+                bottomNavigation.selectedItemId = menuItem.itemId
+            }
+        })
 
-        // set Action bar
-       // setSupportActionBar(toolBar)
-
-        //make link between action bar and navController
-        //setupActionBarWithNavController(navController, appBarConfiguration)
-
-
-        //set up bottom navigation view
-        bottomNavigation.setupWithNavController(navController)
-
-
-
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
 

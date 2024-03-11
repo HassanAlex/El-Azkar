@@ -1,8 +1,14 @@
 package com.codestation.elazkar.adapters
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
+import com.codestation.elazkar.R
 import com.codestation.elazkar.data.ElZekr
 import com.codestation.elazkar.databinding.ElzekrItemBinding
 
@@ -24,9 +30,23 @@ class ElzkerAdapter(
 
     override fun onBindViewHolder(holder: ElzekrViewHolder, position: Int) {
         val elzekr = items[position]
-        holder.binding.tvId.text = elzekr.id.toString()
         holder.binding.tvElzekr.text = elzekr.alzekr
         holder.binding.tvNumberOfRepetition.text = elzekr.numberOfRepetition
+        var counter = elzekr.counter // store current value
+        val done = "تم بحمد الله"
+
+        holder.itemView.setOnClickListener {
+            if (counter in 1..100) {
+                counter--
+                holder.binding.tvNumberOfRepetition.text = counter.toString()
+                if (counter == 0){
+                    holder.binding.tvNumberOfRepetition.text = done
+                    holder.binding.tvNumberOfRepetition.setTextColor(Color.GREEN)
+
+                }
+            }
+
+        }
     }
 
     override fun getItemCount() = items.size

@@ -48,8 +48,9 @@ class ElAzkarViewModel(
                 val id = zeker.getInt("id")
                 val alzekr = zeker.getString("alzekr")
                 val numOfRepet = zeker.getString("numberOfRepetition")
+                val counter = zeker.getInt("counter")
 
-                val elzekrDetails = ElZekr(id, alzekr, numOfRepet)
+                val elzekrDetails = ElZekr(id, alzekr, numOfRepet,counter)
                 //add details to the list
                 azkarMorningArrayList.add(elzekrDetails)
             }
@@ -70,18 +71,16 @@ class ElAzkarViewModel(
                 val id = zeker.getInt("id")
                 val alzekr = zeker.getString("alzekr")
                 val numOfRepet = zeker.getString("numberOfRepetition")
-                val elzekrDetails = ElZekr(id, alzekr, numOfRepet)
+                val counter = zeker.getInt("counter")
+                val elzekrDetails = ElZekr(id, alzekr, numOfRepet,counter)
                 //add details to the list
                 azkarEveningArrayList.add(elzekrDetails)
             }
-
         } catch (e: JSONException) {
             Log.d("evening fragment", e.message.toString())
         }
         // assgin normal array list to live data array list
         _azkarEveningList.value = azkarEveningArrayList
-
-
     }
 
 }

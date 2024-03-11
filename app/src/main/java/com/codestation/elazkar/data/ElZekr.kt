@@ -1,6 +1,7 @@
 package com.codestation.elazkar.data
 
 import com.google.gson.annotations.SerializedName
+import org.json.JSONArray
 
 data class ElZekr(
     @SerializedName("id")
@@ -8,5 +9,8 @@ data class ElZekr(
     @SerializedName("alzekr")
     var alzekr: String,
     @SerializedName("numberOfRepetition")
-    var numberOfRepetition: String
-)
+    var numberOfRepetition: String,
+    @SerializedName("counter")
+    var counter: Int,
+
+    )

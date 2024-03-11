@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.codestation.elazkar.adapters.ElzkerAdapter
 import com.codestation.elazkar.databinding.FragmentEveningAzkarBinding
@@ -14,7 +15,12 @@ import com.codestation.elazkar.ui.ElazkarViewModelFactory
 class EveningAzkarFragment : Fragment() {
 
     private lateinit var binding: FragmentEveningAzkarBinding
-    private lateinit var eveningViewModel: ElAzkarViewModel
+
+    private val elAzkarRepository = ElAzkarRepository()
+
+    private val eveningViewModel: ElAzkarViewModel by viewModels {
+        ElazkarViewModelFactory(requireContext(), elAzkarRepository)
+    }
 
 
     override fun onCreateView(
@@ -23,8 +29,6 @@ class EveningAzkarFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentEveningAzkarBinding.inflate(inflater, container, false)
-        setUpViewModel()
-        //eveningViewModel = ViewModelProvider(this)[ElAzkarViewModel::class.java]
 
         eveningViewModel.azkarEveningList.observe(viewLifecycleOwner) {
             // set the adapter
@@ -34,16 +38,4 @@ class EveningAzkarFragment : Fragment() {
         }
         return binding.root
     }
-
-    private fun setUpViewModel() {
-        val morningElAzkarRepository = ElAzkarRepository()
-        val viewModelFactory = ElazkarViewModelFactory(requireActivity().application, morningElAzkarRepository)
-
-        eveningViewModel = ViewModelProvider(this, viewModelFactory)[ElAzkarViewModel::class.java]
-    }
-
-
-
-
-
 }

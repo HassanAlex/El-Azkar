@@ -4,18 +4,24 @@
 
     <!--  the id of menu has to match id of same match fragment-->
     <item
-        android:id="@id/morningAzkarFragment"
+       android:id="@+id/morningAzkarFragment"
         android:icon="@drawable/ic_sun"
         android:title="@string/azkar_morning"
         />
     <item
-        android:id="@id/eveningAzkarFragment"
+        android:id="@+id/eveningAzkarFragment"
         android:icon="@drawable/ic_moon_night"
         android:title="@string/azkar_evening" />
 
     <item
-        android:id="@id/elsabhaFragment"
+        android:id="@+id/elsabhaFragment"
         android:icon="@drawable/ic_prayer"
         android:title="@string/elsabha" />
+
+    <item
+        android:id="@+id/elradioFragment"
+        android:icon="@drawable/ic_new_radio"
+        android:title="@string/elradio" />
+
 
 </menu>
